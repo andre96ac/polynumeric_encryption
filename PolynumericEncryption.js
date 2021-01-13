@@ -45,14 +45,14 @@ class PolynumericEncryption {
        console.log(this.table);
     }
 
-    getStringToEncript(){
-        let myNow = new Date();
-        let str = '' + myNow.getUTCFullYear() + (myNow.getUTCMonth()+ 1) + myNow.getUTCDate() + myNow.getUTCHours() + myNow.getUTCMinutes() + myNow.getUTCSeconds();
-        return str;
-    }
+    // getStringToEncript(){
+    //     let myNow = new Date();
+    //     let str = '' + myNow.getUTCFullYear() + (myNow.getUTCMonth()+ 1) + myNow.getUTCDate() + myNow.getUTCHours() + myNow.getUTCMinutes() + myNow.getUTCSeconds();
+    //     return str;
+    // }
   
       
-    encrypt(str, generateSha256){
+    _encrypt(str){
         let encryptedStr = '';
         
         let keyPointer = 0;
@@ -80,14 +80,11 @@ class PolynumericEncryption {
             }
         }
 
-        if(generateSha256 == true){
-
-        }
 
         return encryptedStr;
     }
 
-    decrypt(encryptedStr){
+    _decrypt(encryptedStr){
 
         let decryptedStr = '';
         let keyPointer = 0;
@@ -123,14 +120,25 @@ class PolynumericEncryption {
 
     }
 
+    encrypt(str, nLayers = 1){
+        let encryptedStr = str;
+        for(let i = 0; i < nLayers; i++){
+            encryptedStr = this._encrypt(encryptedStr);
+        }
+
+        return encryptedStr;
+    }
+
+    decrypt(str, nLayers = 1){
+        let decryptedStr = str;
+        for(let i = 0; i < nLayers; i++){
+            decryptedStr = this._decrypt(decryptedStr);
+        }
+
+        return decryptedStr;
+    }
+
     
 }
 
 
-let myService = new PolynumericEncryption();
-let strToEncrypt = myService.getStringToEncript();
-let strEncrypted = myService.encrypt(myService.encrypt(strToEncrypt));
-console.log('Stringa da crittografare: ', strToEncrypt);
-console.log('Stringa crittografata: ', strEncrypted);
-let strDecrypted = myService.decrypt(myService.decrypt(strEncrypted));
-console.log('Stringa decrittografata: ', strDecrypted);
