@@ -1,36 +1,29 @@
 export class PolynumericEncryption {
 
-    dimMatrice = 10;
+    dimTable = 10;
     table =  [];
 
     privateKey
 
-    strPari = '';
-    strDispari = '';
     constructor(key) {
         this.privateKey = key;
 
-        // for(let i = 0; i< this.privateKey.length; i+=2){
-        //     this.strPari += this.privateKey[i];
-        //     this.strDispari += this.privateKey[i+1];
-        // }
-
-        this._initMatrice();
+        this._initTable();
 
        
       }
 
-      _initMatrice(){
+      _initTable(){
         //devo fare 9 righe
-       for (let i = 0; i < this.dimMatrice; i++){
+       for (let i = 0; i < this.dimTable; i++){
 
            //Creo la colonna
            let row = [];
 
            //nella colonna devo inserire 9 numeri; il primo numero deve aumentare ogni volta
            let myNum = i;
-           for(let i2 = 0; i2<this.dimMatrice; i2++ ){
-               if(myNum == this.dimMatrice){
+           for(let i2 = 0; i2<this.dimTable; i2++ ){
+               if(myNum == this.dimTable){
                    //sono arrivato a 9, devo ricominciare
                    myNum = 0;
                }
