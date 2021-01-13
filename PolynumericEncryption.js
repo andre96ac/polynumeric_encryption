@@ -1,57 +1,46 @@
 export class PolynumericEncryption {
 
     dimTable = 10;
-    table =  [];
-
+    table = [];
     privateKey
 
     constructor(key) {
         this.privateKey = key;
-
         this._initTable();
-
-       
-      }
-
-      _initTable(){
-        //devo fare 9 righe
-       for (let i = 0; i < this.dimTable; i++){
-
-           //Creo la colonna
-           let row = [];
-
-           //nella colonna devo inserire 9 numeri; il primo numero deve aumentare ogni volta
-           let myNum = i;
-           for(let i2 = 0; i2<this.dimTable; i2++ ){
-               if(myNum == this.dimTable){
-                   //sono arrivato a 9, devo ricominciare
-                   myNum = 0;
-               }
-
-               row.push(myNum);
-               myNum ++;
-           }
-
-           //la riga è pronta, la aggiungo
-           this.table.push(row);
-       }
-       console.log(this.table);
     }
 
-    // getStringToEncript(){
-    //     let myNow = new Date();
-    //     let str = '' + myNow.getUTCFullYear() + (myNow.getUTCMonth()+ 1) + myNow.getUTCDate() + myNow.getUTCHours() + myNow.getUTCMinutes() + myNow.getUTCSeconds();
-    //     return str;
-    // }
-  
-      
-    _encrypt(str){
+    _initTable() {
+        //devo fare 9 righe
+        for (let i = 0; i < this.dimTable; i++) {
+
+            //Creo la colonna
+            let row = [];
+
+            //nella colonna devo inserire 9 numeri; il primo numero deve aumentare ogni volta
+            let myNum = i;
+            for (let i2 = 0; i2 < this.dimTable; i2++) {
+                if (myNum == this.dimTable) {
+                    //sono arrivato a 9, devo ricominciare
+                    myNum = 0;
+                }
+
+                row.push(myNum);
+                myNum++;
+            }
+
+            //la riga è pronta, la aggiungo
+            this.table.push(row);
+        }
+        console.log(this.table);
+    }
+
+    _encrypt(str) {
         let encryptedStr = '';
-        
+
         let keyPointer = 0;
 
 
-        for(let i = 0; i< str.length; i++){
+        for (let i = 0; i < str.length; i++) {
             //recupero il carattere (numerico) da crittografare
             let initialValue = str[i];
 
@@ -65,10 +54,10 @@ export class PolynumericEncryption {
             encryptedStr += finalValue
 
             //avanzo di una posizione con il puntatore alla chiave
-            keyPointer ++;
+            keyPointer++;
 
             //se il puntatore alla chiave è arrivato alla fine, torno all'inizio
-            if(keyPointer == this.privateKey.length){
+            if (keyPointer == this.privateKey.length) {
                 keyPointer = 0;
             }
         }
@@ -76,13 +65,13 @@ export class PolynumericEncryption {
 
         return encryptedStr;
     }
-
-    _decrypt(encryptedStr){
+    
+    _decrypt(encryptedStr) {
 
         let decryptedStr = '';
         let keyPointer = 0;
 
-        for(let i = 0; i< encryptedStr.length; i++){
+        for (let i = 0; i < encryptedStr.length; i++) {
 
             //recupero il carattere giusto della chiave
             let keyValue = this.privateKey[keyPointer];
@@ -96,15 +85,15 @@ export class PolynumericEncryption {
             let decryptedChar = myRow.findIndex(value => {
                 return value == encryptedChar;
             })
-            
+
             //aggiungo il carattere trovato alla mia stringa finale 
             decryptedStr += decryptedChar;
 
             //avanzo di una posizione con il puntatore alla chiave
-            keyPointer ++;
+            keyPointer++;
 
             //se il puntatore alla chiave è arrivato alla fine, torno all'inizio
-            if(keyPointer == this.privateKey.length){
+            if (keyPointer == this.privateKey.length) {
                 keyPointer = 0;
             }
         }
@@ -113,25 +102,25 @@ export class PolynumericEncryption {
 
     }
 
-    encrypt(str, nLayers = 1){
+    encrypt(str, nLayers = 1) {
         let encryptedStr = str;
-        for(let i = 0; i < nLayers; i++){
+        for (let i = 0; i < nLayers; i++) {
             encryptedStr = this._encrypt(encryptedStr);
         }
 
         return encryptedStr;
     }
 
-    decrypt(str, nLayers = 1){
+    decrypt(str, nLayers = 1) {
         let decryptedStr = str;
-        for(let i = 0; i < nLayers; i++){
+        for (let i = 0; i < nLayers; i++) {
             decryptedStr = this._decrypt(decryptedStr);
         }
 
         return decryptedStr;
     }
 
-    
+
 }
 
 
