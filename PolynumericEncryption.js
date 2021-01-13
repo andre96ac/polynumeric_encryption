@@ -1,4 +1,4 @@
-class PolynumericEncryption {
+export class PolynumericEncryption {
 
     dimMatrice = 10;
     table =  [];
@@ -7,8 +7,8 @@ class PolynumericEncryption {
 
     strPari = '';
     strDispari = '';
-    constructor() {
-        this.privateKey = '0454';
+    constructor(key) {
+        this.privateKey = key;
 
         // for(let i = 0; i< this.privateKey.length; i+=2){
         //     this.strPari += this.privateKey[i];
