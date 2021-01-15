@@ -1,8 +1,9 @@
 {
-  "name": "polinumeric_encryption",
-  "version": "1.0.0",
-  "description": "Simple object providing utilies for encrypting-decriptyin numeric strings using a polynumeric algorytm",
-  "main": "PolynumericEncryption.js",
+  "name": "table_encryptor",
+  "version": "1.1.0",
+  "description": "Simple object providing utilies for encrypting-decriptying numeric or alphabetic strings using a polynumeric/polyalphabetic algorytm",
+  "main": "app.js",
+  "type":"commonjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -20,5 +21,9 @@
   "bugs": {
     "url": "https://github.com/andre96ac/polynumeric_encryption/issues"
   },
-  "homepage": "https://github.com/andre96ac/polynumeric_encryption#readme"
+  "homepage": "https://github.com/andre96ac/polynumeric_encryption#readme",
+  "dependencies": {
+    "yargs": "^16.2.0"
+  }
+
 }
