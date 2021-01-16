@@ -48,7 +48,7 @@ function _decryptCmdHandler(args){
     let strToDecrypt = args['string'];
 
     let encryptor = new Encryptor(key);
-    let error = encryptor.getErrors(strToDecrypt);
+    let error = encryptor.checkErrors(strToDecrypt);
     if(error){
         console.log(error);
     }
@@ -57,6 +57,7 @@ function _decryptCmdHandler(args){
         let decryptedStr = encryptor.decrypt(strToDecrypt);
         console.log(decryptedStr);
     }
+
 }
 
 

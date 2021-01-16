@@ -1,6 +1,6 @@
 {
   "name": "table_encryptor",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "Simple object providing utilies for encrypting-decriptying numeric or alphabetic strings using a polynumeric/polyalphabetic algorytm",
   "main": "app.js",
   "type":"commonjs",

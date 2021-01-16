@@ -12,7 +12,7 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\src\\app.js",
-            "args": ["encrypt", "--key='123456'", "--string='dfgfsgsg'"]
+            "args": ["decrypt", "--string='EOQCICZZ555IBF'", "--key='DKFRIDRLDKFD'"]
             // "args": ["decrypt", "--key='123456'", "--string='255802802579579135'"]
             
         }

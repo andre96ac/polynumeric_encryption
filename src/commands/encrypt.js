@@ -48,7 +48,7 @@ function _encryptCmdHandler(args){
    let strToEncrypt = args['string'];
 
    let encryptor = new Encryptor(key);
-   let errorMsg = encryptor.getErrors(strToEncrypt);
+   let errorMsg = encryptor.checkErrors(strToEncrypt);
 
    if(errorMsg){
        console.log(errorMsg);
