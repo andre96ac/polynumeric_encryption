@@ -1,5 +1,5 @@
-# polynumeric_encryption
-Simple object providing cmd line and code utilies for encrypting-decriptying numeric OR alphabetic strings using a polynumeric algorytm
+# Table_Encryptor
+Simple object providing utilies for encrypting-decriptying numeric or alphabetic strings using a polynumeric/polyalphabetic algorytm
 
 ##### every string and it's corresponding key must both be composed by only numbers OR only letters. spaces are not allowed
 
