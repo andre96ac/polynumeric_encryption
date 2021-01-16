@@ -3,6 +3,7 @@ Simple object providing cmd line and code utilies for encrypting-decriptying num
 
 ##### every string and it's corresponding key must both be composed by only numbers OR only letters. spaces are not allowed
 
+
 ### usage:
 
 #### Javascript:
@@ -42,13 +43,11 @@ else{
     console.log(strToDecrypt);
 }
 
-
 ```
-
 
 #### Node:
 
->node src/app.js encrypt --string='your_string_here' --key='your_key_here'
->node src/app.js decrypt --string='your_string_here' --key='your_key_here'
+    node src/app.js encrypt --string='YOUR_STRING_HERE' --key='YOUR_KEY_HERE'
+    node src/app.js decrypt --string='YOUR_STRING_HERE' --key='YOUR_KEY_HERE'
 
 
